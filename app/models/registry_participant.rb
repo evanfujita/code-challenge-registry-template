@@ -1,0 +1,2 @@
+class RegistryParticipant < ApplicationRecord
+end
