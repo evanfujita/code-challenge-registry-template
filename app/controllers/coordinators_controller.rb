@@ -1,10 +1,19 @@
 class CoordinatorsController < ApplicationController
     def login
+        @coordinator = Coordinator.new
+    end
 
+    def login_auth
+        @coordinator = Coordinator.find_by(email: params[:email])
+        if @coordinator
+            redirect_to home
+        else
+            render :login
+        end
     end
     
     def home
-        # byebug
+        
     end
     
     def index

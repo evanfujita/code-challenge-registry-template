@@ -1,6 +1,15 @@
 <h1> Show Page for <%= @participant.first_name %> <%= @participant.last_name %></h1>
 
-<h3> Registries </h3>
+<h3> Registries: </h3>
+
+<% if @participant.registries.length < 1 %>
+<h4> Not Currently Enrolled</h4>
+<% end %>
+
 <% @participant.registries.each do |r| %>
     <%= r.name %>, <%= r.location %>
 <% end %>
+
+
+
+# <%= link_to 'Add to a Registry', add_participant_path %>

@@ -1,4 +1,9 @@
 class RegistryCoordinatorsController < ApplicationController
+    
+    def add_coordinator
+        
+    end
+    
     def new
         @registry = Registry.find(params[:id])
         @registry_coordinator = RegistryCoordinator.new

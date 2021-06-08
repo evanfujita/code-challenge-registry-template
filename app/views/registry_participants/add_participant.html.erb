@@ -1,0 +1,7 @@
+<h1> Add to Participant to <%= @registry.name %> at <%= @registry.location %> </h1>
+
+<%= form_for(@registry_participant) do |f| %>
+    <%= f.collection_select :participant_id, Participant.all, :id, :first_name, prompt: true %>
+    <%= f.hidden_field :registry_id, value: @registry.id %>
+    <%= f.submit value='Add Participant' %>
+<% end %>

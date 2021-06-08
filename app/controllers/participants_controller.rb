@@ -13,7 +13,11 @@ class ParticipantsController < ApplicationController
 
     def create
         @participant = Participant.new(participant_params)
-        @participant.save
+        if @participant.save
+            redirect_to participant_path(@participant)
+        else
+            render :new
+        end
     end
 
     def edit

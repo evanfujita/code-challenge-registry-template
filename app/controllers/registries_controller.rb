@@ -6,6 +6,7 @@ class RegistriesController < ApplicationController
 
     def show
         @registry = Registry.find(params[:id])
+        @coordinators = Coordinator.all
     end
 
     def new
@@ -25,12 +26,18 @@ class RegistriesController < ApplicationController
 
     def edit
         @registry = Registry.find(params[:id])
-        
     end
 
     def update
-        @registry = Registry.update(params[registry_params])
+       
+        @registry = Registry.find(params[:id])
+        if @registry.update(registry_params)
+            redirect_to registry_path
+        # else
+            # render: edit
+        end
     end
+
 
     def delete
 
@@ -39,7 +46,7 @@ class RegistriesController < ApplicationController
     private
 
     def registry_params
-        params.require(:registry).permit(:name, :location)
+        params.require(:registry).permit(:name, :location, :status)
     end
 
 end

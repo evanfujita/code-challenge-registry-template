@@ -1,27 +1,41 @@
-<h1> Show Registry </h1>
+<h1> Registry Details </h1>
 <h3> Name: <%= @registry.name %> </h3>
 <h3> Location: <%= @registry.location %> </h3>
 <h3>Status: <%= @registry.status %> </h3>
 
-<h4> Participants </h4>
+<h4>Coordinator(s):</h4>
+<ul>
+    <% @registry.coordinators.each do |c| %>
+        <li><%= c.name %>, <%=c.email%>, <%=c.phone %></li>
+    <% end %>
+</ul>
+
+<h4> Participants: </h4>
+
+<table>
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Pref. Contact</th>
+            <th>Remarks</th>
+        </tr>
+
 <% @registry.participants.each do |p| %>
-    <%= p.first_name %>
-    <%= p.last_name %><br/>
-    <%= p.gender %><br/><br/>
+    <tr>
+        <td><%= p.last_name %>, <%= p.first_name %></td>
+        <td><%= p.gender %></td>
+        <td><%= p.email %></td>
+        <td><%= p.phone %></td>
+        <td><%= p.contact_method %></td>
+        
+    </tr>
 <% end %>
+<table>
 
-
+<h4><%= link_to 'Update Registry', edit_registry_path %></h4>
 <% if @registry.status == 'Open' %>
-<p> need to show: </p>
-<p>link to update: </p>
-<p>Add participant</p>
-<p>Add coordinator</p>
-<p>Populate Coordinators</p>
-
-<br/><br/>
-
-<%= form_for(@registry) do |f| %>
-    
-    <%= f.submit %>
-<% end %>
+<h4><%= link_to 'Add Participant', add_participants_path %></h4>
+<h4><%= link_to 'Add Coordinator', add_coordinator_path %></h4>
 <% end %>
