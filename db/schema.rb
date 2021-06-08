@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_203647) do
+ActiveRecord::Schema.define(version: 2021_06_07_234943) do
 
   create_table "coordinators", force: :cascade do |t|
     t.string "email", null: false
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 2021_06_07_203647) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name", "location"], name: "index_registries_on_name_and_location", unique: true
+  end
+
+  create_table "registry_coordinators", force: :cascade do |t|
+    t.integer "registry_id"
+    t.integer "coordinator_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "registry_participants", force: :cascade do |t|

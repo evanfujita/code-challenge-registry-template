@@ -1,0 +1,2 @@
+class RegistryCoordinator < ApplicationRecord
+end
