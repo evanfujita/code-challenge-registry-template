@@ -1,11 +1,22 @@
 class RegistriesController < ApplicationController
     
+    def add_coordinator
+        @registry = Registry.find(params[:id])
+        @registry_coordinator = RegistryCoordinator.new
+    end
+
+    def link_coordinator
+        byebug
+
+    end
+
     def index
         @registries = Registry.all
     end
 
     def show
         @registry = Registry.find(params[:id])
+        # @registry.sort_participants
         @coordinators = Coordinator.all
     end
 
@@ -21,6 +32,7 @@ class RegistriesController < ApplicationController
                 registry_id = @registry.id
                 @registry_coordinator = RegistryCoordinator.new(coordinator_id: coordinator_id, registry_id: registry_id)
                 @registry_coordinator.save
+                redirect_to @registry
             end
     end
 
@@ -29,7 +41,6 @@ class RegistriesController < ApplicationController
     end
 
     def update
-       
         @registry = Registry.find(params[:id])
         if @registry.update(registry_params)
             redirect_to registry_path

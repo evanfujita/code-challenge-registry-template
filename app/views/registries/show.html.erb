@@ -14,28 +14,29 @@
 
 <table>
         <tr>
+            <th>Coordinator</th>
             <th>Name</th>
             <th>Gender</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Pref. Contact</th>
+            <th>Contact By</th>
             <th>Remarks</th>
         </tr>
 
 <% @registry.participants.each do |p| %>
     <tr>
+        <td></td>
         <td><%= p.last_name %>, <%= p.first_name %></td>
         <td><%= p.gender %></td>
         <td><%= p.email %></td>
         <td><%= p.phone %></td>
         <td><%= p.contact_method %></td>
-        
     </tr>
 <% end %>
 <table>
 
 <h4><%= link_to 'Update Registry', edit_registry_path %></h4>
 <% if @registry.status == 'Open' %>
-<h4><%= link_to 'Add Participant', add_participants_path %></h4>
+<h4><%= link_to 'Add Participant', add_participant_path %></h4>
 <h4><%= link_to 'Add Coordinator', add_coordinator_path %></h4>
 <% end %>

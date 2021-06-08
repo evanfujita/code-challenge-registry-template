@@ -1,9 +1,9 @@
 class RegistryParticipantsController < ApplicationController
 
     def add_participant
-        byebug
         @registry = Registry.find(params[:id])
         @registry_participant = RegistryParticipant.new
+        
     end
 
     def new
@@ -12,9 +12,12 @@ class RegistryParticipantsController < ApplicationController
     end
 
     def create
-        @participant = Participant.find(params[:registry_participant][:participant_id])
         @registry_participant = RegistryParticipant.new(registry_participant_params)
+        participant_id = params[:registry_participant][:participant_id]
+        registry_id = params[:registry_participant][:registry_id]
+        @registry = Registry.find(registry_id)
         @registry_participant.save
+        redirect_to registry_path(@registry)
     end
 
 
@@ -33,7 +36,7 @@ class RegistryParticipantsController < ApplicationController
     private
 
     def registry_participant_params
-        params.require(:registry_participant).permit(:participant_id, :registry_id)
+        params.require(:registry_participant).permit(:participant_id, :registry_id, :coordinator_email, :remarks)
     end
 
 end

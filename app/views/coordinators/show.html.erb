@@ -1,14 +1,12 @@
 <h1> Coordinator Show Page </h1>
 <%= @coordinator.name %>
 
-<p> Need to show: </p>
 <h4> Registries Index (link to show) </h4>
-<li> list of registries </li>
-<h4> Registries (participants collapsed?) </h4>
-<li> list of participants in registry, grouped by coordinator that enrolled them </li>
+<% @coordinator.registries.each do |r| %>
+    <li><%= link_to r.name, r%>, <%= r.location %></li>
+<% end %>
 <h4> Enroll Participant </h4>
 <li> link to enroll participants in a registry </li>
-<h4> Manage Coordinators </h4>
-<li> link to manage (edit) coordinators </li>
-<h4> Manage Participants </h4>
-<li> link to manage (edit) participants </li>
+<li><%= link_to 'Manage Coordinators', coordinators_path %> </li>
+<li><%= link_to 'Manage Participants', participants_path %> </li>
+<li> list of participants in registry, grouped by coordinator that enrolled them </li>

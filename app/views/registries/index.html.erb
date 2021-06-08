@@ -1,4 +1,4 @@
 <h1> Registries </h1>
 <% @registries.each do |r| %>
-    <li><%= r.name %>, <%= r.location %>, <%= r.status %></li>
+    <li><%= link_to r.name, r %>, <%= r.location %>, <%= r.status %></li>
 <% end %>
