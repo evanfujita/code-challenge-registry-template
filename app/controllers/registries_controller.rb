@@ -1,4 +1,5 @@
 class RegistriesController < ApplicationController
+    
     def index
         @registries = Registry.all
     end
@@ -10,18 +11,21 @@ class RegistriesController < ApplicationController
     def new
         @registry = Registry.new
         @registry_coordinator = RegistryCoordinator.new
-        @coordinators = Coordinator.all
     end
 
     def create
         @registry = Registry.new(registry_params)
-        @registry.save
+            if @registry.save
+                coordinator_id = params[:registry][:registry_coordinator][:coordinator_id]
+                registry_id = @registry.id
+                @registry_coordinator = RegistryCoordinator.new(coordinator_id: coordinator_id, registry_id: registry_id)
+                @registry_coordinator.save
+            end
     end
 
     def edit
         @registry = Registry.find(params[:id])
-        @registry_coordinator = RegistryCoordinator.new
-        @registry_participant = RegistryParticipant.new
+        
     end
 
     def update

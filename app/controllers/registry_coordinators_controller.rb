@@ -1,12 +1,13 @@
 class RegistryCoordinatorsController < ApplicationController
     def new
+        @registry = Registry.find(params[:id])
         @registry_coordinator = RegistryCoordinator.new
-        # @registry = Registry.new
-        
     end
 
     def create
+        
         @registry_coordinator = RegistryCoordinator.new(registry_coordinator_params)
+        coordinator_id = params[:registry_coordinator][:coordinator_id]
     end
 
     private
