@@ -1,8 +1,7 @@
 <h1> Participants </h1>
 
 <% @participants.each do |p| %>
-    <%= p.first_name %>
-    <%= p.last_name %><br/>
+    <%= p.name %><br/>
     <%= p.phone %><br/>
     <%= p.email %><br/>
     <%= p.contact_method %><br/><br/>

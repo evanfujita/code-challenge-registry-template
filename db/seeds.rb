@@ -5,9 +5,9 @@ Registry.create(name: 'Second Registry', location: 'Chicago')
 Registry.create(name: 'Third Registry', location: 'Portland', status: 'Closed')
 Registry.create(name: 'Fourth Registry', location: 'Madison')
 
-Participant.create(first_name: 'abbie', last_name: 'apple', dob: '1985-11-12', gender: 'F', email: 'aaa@gmail', phone: '847', contact_method: 'phone')
-Participant.create(first_name: 'princess', last_name: 'peach', dob: '1983-11-12', gender: 'F', email: 'bbb@gmail', phone: '94834737', contact_method: 'phone')
-Participant.create(first_name: 'winston', last_name: 'cat', dob: '1999-11-12', gender: 'M', email: 'ccc@gmail', phone: '230894723', contact_method: 'email')
+Participant.create(name: 'abbie', dob: '1985-11-12', gender: 'F', email: 'aaa@gmail', phone: '847', contact_method: 'phone')
+Participant.create(name: 'princess', dob: '1983-11-12', gender: 'F', email: 'bbb@gmail', phone: '94834737', contact_method: 'phone')
+Participant.create(name: 'winston', dob: '1999-11-12', gender: 'M', email: 'ccc@gmail', phone: '230894723', contact_method: 'email')
 
 Coordinator.create(email: 'abc@gmail.com', name: 'Aaron', phone: '8476360835')
 Coordinator.create(email: 'bcd@gmail.com', name: 'James', phone: '7736456372')

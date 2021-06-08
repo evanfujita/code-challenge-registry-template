@@ -17,20 +17,15 @@
             <th>Coordinator</th>
             <th>Name</th>
             <th>Gender</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Contact By</th>
-            <th>Remarks</th>
+            <th>DOB</th>
         </tr>
 
 <% @registry.participants.each do |p| %>
     <tr>
         <td></td>
-        <td><%= p.last_name %>, <%= p.first_name %></td>
+        <td><%= link_to p.name %></td>
         <td><%= p.gender %></td>
-        <td><%= p.email %></td>
-        <td><%= p.phone %></td>
-        <td><%= p.contact_method %></td>
+        <td><%= p.dob %></td>
     </tr>
 <% end %>
 <table>

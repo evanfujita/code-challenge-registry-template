@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_06_07_234943) do
 
   create_table "coordinators", force: :cascade do |t|
-    t.string "email", null: false
     t.string "name", null: false
+    t.string "email", null: false
     t.string "phone", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -22,13 +22,12 @@ ActiveRecord::Schema.define(version: 2021_06_07_234943) do
   end
 
   create_table "participants", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.date "dob"
-    t.string "gender"
-    t.string "email"
-    t.string "phone"
-    t.string "contact_method"
+    t.string "name", null: false
+    t.date "dob", null: false
+    t.string "gender", null: false
+    t.string "email", null: false
+    t.string "phone", null: false
+    t.string "contact_method", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,18 +42,18 @@ ActiveRecord::Schema.define(version: 2021_06_07_234943) do
   end
 
   create_table "registry_coordinators", force: :cascade do |t|
-    t.integer "registry_id"
-    t.integer "coordinator_id"
+    t.integer "registry_id", null: false
+    t.integer "coordinator_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "registry_participants", force: :cascade do |t|
-    t.integer "participant_id"
-    t.integer "registry_id"
-    t.string "coordinator_email"
-    t.date "enrollment_date"
-    t.text "remarks"
+    t.integer "participant_id", null: false
+    t.integer "registry_id", null: false
+    t.string "coordinator_email", null: false
+    t.date "enrollment_date", null: false
+    t.text "remarks", default: "N/A"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["participant_id", "registry_id"], name: "index_registry_participants_on_participant_id_and_registry_id", unique: true

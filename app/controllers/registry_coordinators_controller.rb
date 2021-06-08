@@ -8,8 +8,6 @@ class RegistryCoordinatorsController < ApplicationController
     def new
         @registry = Registry.find(params[:id])
         @registry_coordinator = RegistryCoordinator.new
-        byebug
-
     end
 
     def create
