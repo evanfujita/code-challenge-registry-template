@@ -1,1 +1,15 @@
 <h1> Add a Participant </h1>
+
+<%= form_for(@participant) do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+    <%= f.label :contact_method %>
+    <%= f.text_field :contact_method %>
+    <%= f.submit %>
+    <% end %>

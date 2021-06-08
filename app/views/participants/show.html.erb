@@ -1,0 +1,6 @@
+<h1> Show Page for <%= @participant.first_name %> <%= @participant.last_name %></h1>
+
+<h3> Registries </h3>
+<% @participant.registries.each do |r| %>
+    <%= r.name %>, <%= r.location %>
+<% end %>

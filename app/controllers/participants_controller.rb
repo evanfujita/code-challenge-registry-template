@@ -13,6 +13,7 @@ class ParticipantsController < ApplicationController
 
     def create
         @participant = Participant.new(participant_params)
+        @participant.save
     end
 
     def edit
@@ -20,7 +21,7 @@ class ParticipantsController < ApplicationController
     end
 
     def update
-
+        @participant = Participant.update(participant_params)
     end
 
     def delete

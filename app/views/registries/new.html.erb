@@ -6,3 +6,15 @@
 <li> Coordinator_id (include self as pre-selected)</li>
 <li> additional coordinator_ids (by email, name. perhaps send confirmation email?)</li>
 <li> creates RegistryCoordinator.new() for each coordinator </li>
+<br/><br/>
+
+<%= form_for(@registry) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    
+    <%= f.collection_select :coordinator_id, @coordinators, :id, :name, prompt: true %>
+    <%= f.submit %>
+<% end %>
+

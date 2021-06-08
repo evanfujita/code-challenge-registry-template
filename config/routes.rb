@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :coordinators
   resources :registries
   
-  root to: 'coordinators#home'
+  get 'home', to: 'coordinators#home'
+  root to: 'coordinators#login'
 end

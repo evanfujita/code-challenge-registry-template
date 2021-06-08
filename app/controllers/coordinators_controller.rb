@@ -1,4 +1,8 @@
 class CoordinatorsController < ApplicationController
+    def login
+
+    end
+    
     def home
         # byebug
     end
@@ -8,7 +12,7 @@ class CoordinatorsController < ApplicationController
     end
 
     def show
-        @coordinator = Coordinator.find_by(id: params[:id])
+        @coordinator = Coordinator.find(params[:id])
     end
 
     def new
@@ -26,11 +30,12 @@ class CoordinatorsController < ApplicationController
     end
 
     def update
-
+        @coordinator = Coordinator.find(params[:id])
+        @coordinator.update(coordinator_params)
     end
 
     def delete
-
+        
     end
 
     private

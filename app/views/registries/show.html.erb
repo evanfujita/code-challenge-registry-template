@@ -1,5 +1,27 @@
-<h1> Show Registries </h1>
+<h1> Show Registry </h1>
 <h3> Name: <%= @registry.name %> </h3>
 <h3> Location: <%= @registry.location %> </h3>
+<h3>Status: <%= @registry.status %> </h3>
 
+<h4> Participants </h4>
+<% @registry.participants.each do |p| %>
+    <%= p.first_name %>
+    <%= p.last_name %><br/>
+    <%= p.gender %><br/><br/>
+<% end %>
+
+
+<% if @registry.status == 'Open' %>
 <p> need to show: </p>
+<p>link to update: </p>
+<p>Add participant</p>
+<p>Add coordinator</p>
+<p>Populate Coordinators</p>
+
+<br/><br/>
+
+<%= form_for(@registry) do |f| %>
+    
+    <%= f.submit %>
+<% end %>
+<% end %>
