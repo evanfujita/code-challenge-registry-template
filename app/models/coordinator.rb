@@ -12,6 +12,8 @@ class Coordinator < ApplicationRecord
 
     scope :ordered_alphabetically, -> { order(name: :asc)}
 
+    scope :sort_by_coordinator, -> { joins(:registry_participants).where( email: coordinator_email) }
+
     def self.to_csv
         attributes = %w{ name }
         CSV.generate(headers: true) do |csv|

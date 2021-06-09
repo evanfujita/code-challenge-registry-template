@@ -12,4 +12,4 @@
 
 <br/><br/>
 
-<%= link_to 'Delete Coordinator' %>
+<%= link_to 'Delete Coordinator', @coordinator, method: :delete, data: {confirm: 'Are you sure? '} %>

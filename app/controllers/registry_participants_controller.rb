@@ -2,7 +2,7 @@ class RegistryParticipantsController < ApplicationController
 
     def index
         @registry_participants = RegistryParticipant.sort_by_coordinator
-        byebug
+       
     end
 
     def add_participant
@@ -21,10 +21,9 @@ class RegistryParticipantsController < ApplicationController
     end
 
     def create
-        byebug
         @registry_participant = RegistryParticipant.new(registry_participant_params)
-        # participant_id = params[:registry_participant][:participant_id]
-        # registry_id = params[:registry_participant][:registry_id]
+        participant_id = params[:registry_participant][:participant_id]
+        registry_id = params[:registry_participant][:registry_id]
         @registry = Registry.find(registry_id)
         @registry_participant.save
         redirect_to registry_path(@registry)

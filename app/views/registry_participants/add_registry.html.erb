@@ -4,7 +4,7 @@
     <%= f.collection_select :registry_id, Registry.all, :id, :name, prompt: true %><br/><br/>
     <%= f.hidden_field :participant_id, value: @participant.id %>
     <%= f.label :coordinator_email %><br/>
-    <%= f.collection_select :coordinator_email, Coordinator.all, :coordinator_email, :email, prompt: true %><br/><br/>
+    <%= f.collection_select :coordinator_email, Coordinator.all, :email, :email, prompt: true %><br/><br/>
     <%= f.label :remarks %><br/>
     <%= f.text_field :remarks %><br/><br/>
     <%= f.label :enrollment_date %><br/>
