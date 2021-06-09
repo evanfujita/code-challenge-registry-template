@@ -3,5 +3,9 @@ class RegistryParticipant < ApplicationRecord
     belongs_to :registry
 
     scope :sort_by_coordinator, -> { order('coordinator_email') }
-    scope :participants_by_coordinator, -> { order('participant_id')}
+
+    def find_coordinator
+        Coordinator.where(:email => self.coordinator_email)
+    end
+
 end

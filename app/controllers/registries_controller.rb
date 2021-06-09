@@ -11,7 +11,6 @@ class RegistriesController < ApplicationController
 
     def show
         @registry = Registry.find(params[:id])
-        @registry.sort_participants_by_coordinator
         @coordinators = Coordinator.all
     end
 

@@ -11,7 +11,14 @@ class Participant < ApplicationRecord
 
     scope :ordered_alphabetically, -> { order(name: :asc)}
 
-    def find_coordinators
-        
+    def own_registries
+        RegistryParticipant.where(:participant_id => self.id)
     end
+
+    #returns array of coordiantors for registry 
+    def find_coordinator(registry_id)
+      x = RegistryParticipant.where(registry_id: registry_id).where(participant_id: self.id)
+      Coordinator.find_by(email: x.first.coordinator_email)
+    end
+
 end

@@ -5,7 +5,7 @@
 
 <h4>Coordinator(s):</h4>  
   <ul>
-    <% @registry.coordinators.each do |c| %>
+    <% @registry.find_coordinators.each do |c| %>
       <li><%= c.name %>, <%=c.email%>, <%=c.phone %></li>
     <% end %>
   </ul>
@@ -22,16 +22,23 @@
       <th>Gender</th>
       <th>DOB</th>
     </tr>
+    
 
-  <% @registry.participants.each do |p| %>
-    <tr>
-      <td></td>
-      <td><%= link_to p.name, p %></td>
-      <td><%= p.gender %></td>
-      <td><%= p.dob %></td>
-    </tr>
-  <% end %>
- <table>
+  
+    <% @registry.participants.each do |p| %>
+      <tr>
+        <td>  </td>
+        <td><%= link_to p.name, p %></td>
+        <td><%= p.gender %></td>
+        <td><%= p.dob %></td>
+      </tr>
+    <% end %>
+    <table>
+  
+
+  
+
+</table>
 <% end %>
 
 <h4><%= link_to 'Update Registry', edit_registry_path %></h4>
@@ -39,3 +46,5 @@
 <h4><%= link_to 'Add Participant', add_participant_path %></h4>
 <h4><%= link_to 'Add Coordinator', add_coordinator_path %></h4>
 <% end %>
+
+

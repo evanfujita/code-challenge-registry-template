@@ -1,8 +1,7 @@
 class CoordinatorsController < ApplicationController
     def index
         @coordinators = Coordinator.ordered_alphabetically
-        @test = Coordinator.sort_participants_by_coordinator
-        byebug
+        
         respond_to do |format|
             format.html
             format.csv { send_data @coordinators.to_csv }
@@ -39,9 +38,10 @@ class CoordinatorsController < ApplicationController
         @coordinator.update(coordinator_params)
     end
 
-    def destroy
+    def delete
         @coordinator = Coordinator.find(params[:id])
         @coordinator.destroy
+        redirect_to coordinators_path
     end
 
     private

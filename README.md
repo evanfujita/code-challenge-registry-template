@@ -60,3 +60,10 @@ We expect to execute the following commands to get the app up and running on a s
 `rails server`
 
 Then on a browser window, the app should be accessible at http://localhost:3000/
+
+
+
+SQL:
+- aggregate count of participants by year of birth
+
+- aggregate count of participants by coordinator and gender
