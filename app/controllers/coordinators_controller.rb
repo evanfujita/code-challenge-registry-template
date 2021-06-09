@@ -1,4 +1,13 @@
 class CoordinatorsController < ApplicationController
+    def index
+        
+        @coordinators = Coordinator.all
+        respond_to do |format|
+            format.html
+            format.csv { send_data @coordinators.to_csv }
+        end
+    end
+
     def login
         @coordinator = Coordinator.new
     end
@@ -14,10 +23,6 @@ class CoordinatorsController < ApplicationController
     
     def home
         
-    end
-    
-    def index
-        @coordinators = Coordinator.all
     end
 
     def show

@@ -5,7 +5,7 @@
     <%= f.text_field :name %><br/><br/>
     <%= f.label :location %><br/>
     <%= f.text_field :location %><br/><br/>
-    <%= f.label :status %><br/>
-    <%= f.text_field :status %><br/><br/>
+    <%= f.radio_button :status, 'Open' %> Open<br/><br/>
+    <%= f.radio_button :status, 'Closed' %> Closed<br/><br/>
     <%= f.submit %>
 <% end %>

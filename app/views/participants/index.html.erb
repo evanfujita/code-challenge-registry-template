@@ -1,8 +1,17 @@
 <h1> Participants </h1>
-
-<% @participants.each do |p| %>
-    <%= p.name %><br/>
-    <%= p.phone %><br/>
-    <%= p.email %><br/>
-    <%= p.contact_method %><br/><br/>
-<% end %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Contact Method</th>
+  </tr>
+  <% @participants.each do |p| %>
+    <tr>
+      <td><%= link_to p.name, p %></td>
+      <td><%= p.phone %></td>
+      <td><%= p.email %></td>
+      <td><%= p.contact_method %></td>
+    </tr>
+  <% end %>
+</table>

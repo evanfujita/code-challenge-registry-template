@@ -3,6 +3,10 @@ class ParticipantsController < ApplicationController
         @participants = Participant.all
     end
 
+    def add_registry
+        @participant = Participant.find(params[:id])
+    end
+
     def show
         @participant = Participant.find(params[:id])
     end

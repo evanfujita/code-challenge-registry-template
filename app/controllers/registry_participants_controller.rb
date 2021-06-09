@@ -6,14 +6,17 @@ class RegistryParticipantsController < ApplicationController
         
     end
 
+    def add_registry
+        @participant = Participant.find(params[:id])
+        @registry_participant = RegistryParticipant.new
+    end
+
     def new
         @registry_participant = RegistryParticipant.new
         @participant = Participant.find(params[:id])
     end
 
     def create
-        byebug
-        DateTime.now.strftime('%Y-%m-%d')
         @registry_participant = RegistryParticipant.new(registry_participant_params)
         participant_id = params[:registry_participant][:participant_id]
         registry_id = params[:registry_participant][:registry_id]

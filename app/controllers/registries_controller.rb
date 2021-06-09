@@ -5,18 +5,13 @@ class RegistriesController < ApplicationController
         @registry_coordinator = RegistryCoordinator.new
     end
 
-    def link_coordinator
-        byebug
-
-    end
-
     def index
         @registries = Registry.all
     end
 
     def show
         @registry = Registry.find(params[:id])
-        # @registry.sort_participants
+        @registry.sort_participants_by_coordinator
         @coordinators = Coordinator.all
     end
 
