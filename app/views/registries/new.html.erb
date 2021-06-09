@@ -1,13 +1,13 @@
 <h1> Create Registry </h1>
 
 <%= form_for(@registry) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-    <%= f.fields_for(@registry_coordinator) do |r| %>
-        <%= r.label :coordinator_id %>
-        <%= r.collection_select :coordinator_id, Coordinator.all, :id, :name, prompt: true %>
-    <%= f.submit %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %><br/><br/>
+  <%= f.label :location %><br/>
+  <%= f.text_field :location %><br/><br/>
+  <%= f.fields_for(@registry_coordinator) do |r| %>
+    <%= r.label 'Coordinator:' %><br/>
+    <%= r.collection_select :coordinator_id, Coordinator.all, :id, :name, prompt: true %><br/><br/>
+  <%= f.submit %>
 <% end %>
 <% end %>

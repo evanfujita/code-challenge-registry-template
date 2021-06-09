@@ -1,12 +1,15 @@
-<h1> Coordinator Show Page </h1>
-<%= @coordinator.name %>
+<h1> Coordinator Profile: <%= @coordinator.name %> </h1>
+<h4>
+    Email: <%= @coordinator.email %><br/>
+    Phone: <%= @coordinator.phone %>
+</h4>
 
-<h4> Registries Index (link to show) </h4>
+
 <% @coordinator.registries.each do |r| %>
     <li><%= link_to r.name, r%>, <%= r.location %></li>
 <% end %>
-<h4> Enroll Participant </h4>
-<li> link to enroll participants in a registry </li>
-<li><%= link_to 'Manage Coordinators', coordinators_path %> </li>
-<li><%= link_to 'Manage Participants', participants_path %> </li>
-<li> list of participants in registry, grouped by coordinator that enrolled them </li>
+
+<br/><br/>
+
+<%= link_to 'Update Coordinator Information', edit_coordinator_path %> <br/>
+ 

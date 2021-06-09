@@ -1,21 +1,16 @@
 class Coordinator < ApplicationRecord
     has_many :registry_coordinators
     has_many :registries, through: :registry_coordinators
+  
+    validates :name, presence => { :message => 'Name Cannot Be Blank'}
+    validates :email,
+      :presence => true,
+      :uniqueness => {:message => 'Email Address is Already Taken!'}, 
+      :format => { with: URI::MailTo::EMAIL_REGEXP, message: 'Incorrect Format for Email' }
 
-    def find_participants
-        participants = []
-        self.registries.each do |r|
-          r.participants.each do |p|
-            participants << p
-          end
-        end        
-      end
+    validates :phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: 'Incorrect Format for Phone' }
 
-    def coordinator_participants
-        byebug
-        x = RegistryParticipant.where(coordinator_email: self.email)
-
-    end
+    scope :ordered_alphabetically, -> { order(name: :asc)}
 
     def self.to_csv
         attributes = %w{ name }

@@ -1,10 +1,8 @@
-
-
 # <%= form_for(@registry_participant) do |f| %>
 #     <%= f.label :participant_id %><br/>
 #     <%= f.collection_select :participant_id, Participant.all, :id, :name, prompt: true %><br/><br/>
 #     <%= f.label :coordinator_email %><br/>
-#     <%= f.collection_select :coordinator_email, Coordinator.all, :id, :email, prompt: true %><br/><br/>
+#     <%= f.collection_select :coordinator_email, Coordinator.all, :coordinator_email, :email, prompt: true %><br/><br/>
 #     <%= f.label :remarks %><br/>
 #     <%= f.text_field :remarks %><br/><br/>
 #     <%= f.hidden_field :registry_id, value: @registry.id %>    

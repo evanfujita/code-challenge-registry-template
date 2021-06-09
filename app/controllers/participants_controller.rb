@@ -1,6 +1,6 @@
 class ParticipantsController < ApplicationController
     def index
-        @participants = Participant.all
+        @participants = Participant.ordered_alphabetically
     end
 
     def add_registry
@@ -20,6 +20,7 @@ class ParticipantsController < ApplicationController
         if @participant.save
             redirect_to participant_path(@participant)
         else
+            byebug
             render :new
         end
     end
@@ -29,7 +30,9 @@ class ParticipantsController < ApplicationController
     end
 
     def update
-        @participant = Participant.update(participant_params)
+        @participant = Participant.find(params[:id])
+        @participant.update(participant_params)
+        redirect_to participant_path
     end
 
     def delete
@@ -41,6 +44,5 @@ class ParticipantsController < ApplicationController
     def participant_params
         params.require(:participant).permit(:name, :gender, :dob, :phone, :email, :contact_method)
     end
-
 
 end

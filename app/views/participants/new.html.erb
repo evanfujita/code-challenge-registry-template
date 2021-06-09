@@ -1,13 +1,27 @@
 <h1> Add a Participant </h1>
 
+<% if @participant.errors.any? %>
+  <h2 style='color: red'> Hang On! There Was an Error... </h2>
+  <ul>
+  <% @participant.errors.full_messages.each do |error| %>
+    <li style='color: red'><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <%= form_for(@participant) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br/><br/>
-    <%= f.label :email %>
-    <%= f.text_field :email %><br/><br/>
-    <%= f.label :phone %>
-    <%= f.text_field :phone %><br/><br/>
-    <%= f.label :contact_method %>
-    <%= f.text_field :contact_method %><br/><br/>
-    <%= f.submit %>
-    <% end %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %><br/><br/>
+  <%= f.label :gender %><br/>
+  <%= f.text_field :gender %><br/><br/>
+  <%= f.label 'Date of Birth' %><br/>
+  <%= f.date_field :dob %><br/><br/>
+  <%= f.label :email %><br/>
+  <%= f.text_field :email %><br/><br/>
+  <%= f.label :phone %> (xxx-xxx-xxxx)<br/>
+  <%= f.text_field :phone %><br/><br/>
+  <%= f.label 'Preferred_Contact_Method:' %><br/>
+  <%= f.radio_button :contact_method, 'EMAIL' %>Email<br/>
+  <%= f.radio_button :contact_method, 'PHONE' %>Phone<br/><br/>
+  <%= f.submit %>
+<% end %>

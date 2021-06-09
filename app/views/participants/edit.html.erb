@@ -1,1 +1,23 @@
 <h1> Edit Profile for <%= @participant.name %> </h1>
+
+<% if @participant.errors.any? %>
+  <h2 style='color: red'> Hang On! There Was an Error... </h2>
+  <ul>
+  <% @participant.errors.each do |error| %>
+    <li style='color: red'><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for(@participant) do |f| %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %><br/><br/>
+  <%= f.label :email %><br/>
+  <%= f.text_field :email %><br/><br/>
+  <%= f.label :phone %><br/>
+  <%= f.text_field :phone %> (xxx-xxx-xxxx)<br/><br/>
+  <%= f.label 'Preferred_Contact_Method:' %><br/>
+  <%= f.radio_button :contact_method, 'EMAIL' %>Email<br/>
+  <%= f.radio_button :contact_method, 'PHONE' %>Phone<br/><br/>
+  <%= f.submit %>
+<% end %>

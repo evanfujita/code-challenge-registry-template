@@ -1,23 +1,9 @@
 class CoordinatorsController < ApplicationController
     def index
-        
-        @coordinators = Coordinator.all
+        @coordinators = Coordinator.ordered_alphabetically
         respond_to do |format|
             format.html
             format.csv { send_data @coordinators.to_csv }
-        end
-    end
-
-    def login
-        @coordinator = Coordinator.new
-    end
-
-    def login_auth
-        @coordinator = Coordinator.find_by(email: params[:email])
-        if @coordinator
-            redirect_to home
-        else
-            render :login
         end
     end
     
@@ -35,8 +21,11 @@ class CoordinatorsController < ApplicationController
 
     def create
         @coordinator = Coordinator.new(coordinator_params)
-        #need validation
-        @coordinator.save
+        if @coordinator.save
+            redirect_to @coordinator
+        else
+            render :new
+        end
     end
 
     def edit
