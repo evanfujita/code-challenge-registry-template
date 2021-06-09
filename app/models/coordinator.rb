@@ -34,7 +34,7 @@ class Coordinator < ApplicationRecord
     end
 
     def self.to_csv
-        attributes = %w{ name }
+        attributes = %w{ name dob gender email phone contact_method }
         CSV.generate(headers: true) do |csv|
             csv << attributes
             all.each do |coordinator|

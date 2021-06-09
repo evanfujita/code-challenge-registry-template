@@ -35,10 +35,6 @@ class ParticipantsController < ApplicationController
         redirect_to participant_path
     end
 
-    def delete
-
-    end
-
     private
 
     def participant_params

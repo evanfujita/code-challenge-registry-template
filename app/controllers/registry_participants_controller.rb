@@ -29,18 +29,6 @@ class RegistryParticipantsController < ApplicationController
         redirect_to registry_path(@registry)
     end
 
-    def edit
-
-    end
-
-    def update
-
-    end
-
-    def delete
-
-    end
-
     private
 
     def registry_participant_params

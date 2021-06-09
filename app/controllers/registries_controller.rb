@@ -43,11 +43,6 @@ class RegistriesController < ApplicationController
         end
     end
 
-
-    def delete
-
-    end
-
     private
 
     def registry_params

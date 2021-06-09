@@ -11,6 +11,7 @@ class Participant < ApplicationRecord
 
     scope :ordered_alphabetically, -> { order(name: :asc)}
 
+    #returns array of registries for specific participant
     def own_registries
         RegistryParticipant.where(:participant_id => self.id)
     end

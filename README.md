@@ -61,9 +61,25 @@ We expect to execute the following commands to get the app up and running on a s
 
 Then on a browser window, the app should be accessible at http://localhost:3000/
 
+---------------------------------
 
+My Notes:
+
+CSV file exports both coordinators and participants but without designation.
+
+Best attempt at SQL aggregate functions below:
 
 SQL:
 - aggregate count of participants by year of birth
+  
+    SELECT year(dob), COUNT(*) FROM participants
+    GROUP BY year(dob)
 
 - aggregate count of participants by coordinator and gender
+
+    SELECT COUNT(*) FROM participants
+    GROUP BY coordinator, gender
+
+
+
+This was an excellent challenge--Thank you for this opportunity!

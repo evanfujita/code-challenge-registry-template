@@ -8,8 +8,7 @@ class CoordinatorsController < ApplicationController
         end
     end
     
-    def home
-        
+    def home  
     end
 
     def show
